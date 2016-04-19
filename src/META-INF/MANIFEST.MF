@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Class-Path: hibernate-commons-annotations-4.0.2.Final.jar hibernate-jp
+ a-2.0-api-1.0.1.Final.jar dom4j-1.6.1.jar jboss-logging-3.1.0.GA.jar 
+ jboss-transaction-api_1.1_spec-1.0.1.Final.jar antlr-2.7.7.jar javass
+ ist-3.15.0-GA.jar hibernate-core-4.2.2.Final.jar spring-aspects-4.2.3
+ .RELEASE.jar spring-aop-4.2.3.RELEASE.jar spring-context-support-4.2.
+ 3.RELEASE.jar spring-beans-4.2.3.RELEASE.jar spring-instrument-4.2.3.
+ RELEASE.jar spring-expression-4.2.3.RELEASE.jar spring-instrument-tom
+ cat-4.2.3.RELEASE.jar spring-jms-4.2.3.RELEASE.jar spring-context-4.2
+ .3.RELEASE.jar spring-core-4.2.3.RELEASE.jar spring-messaging-4.2.3.R
+ ELEASE.jar spring-oxm-4.2.3.RELEASE.jar spring-jdbc-4.2.3.RELEASE.jar
+  commons-logging-1.1.3.jar aopalliance-1.0.jar spring-orm-4.2.3.RELEA
+ SE.jar spring-tx-4.2.3.RELEASE.jar spring-test-4.2.3.RELEASE.jar ognl
+ .jar xwork-core.jar commons-fileupload.jar struts2-core.jar commons-l
+ ang.jar asm.jar asm-commons.jar asm-tree.jar commons-io.jar freemarke
+ r.jar javassist.jar spring-webmvc-portlet-4.2.3.RELEASE.jar spring-we
+ bsocket-4.2.3.RELEASE.jar spring-webmvc-4.2.3.RELEASE.jar spring-web-
+ 4.2.3.RELEASE.jar
+Main-Class: cn.edu.xjtu.Main
+
