@@ -73,7 +73,7 @@ public class HadoopMain {
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job,interResultPath);
         job.setInputFormatClass(FileNameAsKeyLineInputFormat.class);
-        //job.setOutputFormatClass(TextOutputFormat.class);
+        job.setOutputFormatClass(TextOutputFormat.class);
         job.setMapperClass(DateTimeAsKeyMapper.class);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(LongLine.class);
@@ -82,7 +82,26 @@ public class HadoopMain {
         job.setNumReduceTasks(24/PrivacyConfig.getInstance().getHowManyHoursPerSection());
         job.waitForCompletion(true);
 
-
+        Configuration conf1=new Configuration();
+        conf1.set("inputPath",args[0]);
+        conf1.set("outputPath", args[1]);
+        conf1.set("key", key);
+        if(PrivacyConfig.getInstance().getResultSort()==1) {
+            Job job1 = Job.getInstance(conf1, "hwPrivacy1");
+            job1.setJarByClass(HadoopMain.class);
+            FileInputFormat.addInputPath(job1, interResultPath);
+            FileOutputFormat.setOutputPath(job1, new Path(args[1]));
+            job1.setInputFormatClass(KeyValueTextInputFormat.class);
+            job1.setOutputFormatClass(WholeFileOutputFormat.class);
+            job1.setMapperClass(LineToFileMapper.class);
+            job1.setMapOutputKeyClass(FileNameAndLineNumber.class);
+            job1.setPartitionerClass(FileNamePartitioner.class);
+            job1.setSortComparatorClass(myKeyComparator.class);
+            job1.setGroupingComparatorClass(FileGroupingComparator.class);
+            job1.setReducerClass(myReducer.class);
+            job1.setNumReduceTasks(23);
+            job1.waitForCompletion(true);
+        }
 
     }
 }
