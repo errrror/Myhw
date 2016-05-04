@@ -25,6 +25,6 @@ public class WholeFileOutputFormat extends FileOutputFormat<Text,Text> {
     @Override
     public RecordWriter<Text, Text> getRecordWriter(TaskAttemptContext job) throws IOException, InterruptedException {
         Path outputPath = getOutputPath(job);
-        return new NoTab
+        return new NoTabWriter(job,outputPath);
     }
 }

@@ -41,6 +41,8 @@ public class NoTabWriter extends RecordWriter<Text,Text>{
 
     @Override
     public void close(TaskAttemptContext context) throws IOException, InterruptedException {
-
+        for(PrintWriter write:this.writers.values()){
+            write.close();
+        }
     }
 }
